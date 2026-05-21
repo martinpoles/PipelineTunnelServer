@@ -1,0 +1,22 @@
+WIN
+net use \\192.168.0.100\01_ARCHITETTURA /user:USERNAME PASSWORD /persistent:yes
+MAC
+mount_smbfs //USERNAME:PASSWORD@192.168.0.100/01_ARCHITETTURA /Volumes/architettura
+LINUX
+sudo mount -t cifs //192.168.0.100/01_ARCHITETTURA /mnt/nas \-o username=USERNAME,password=PASSWORD
+
+ngrok http 8080
+python main.py
+
+ngrok.exe deve essere nella root del folder
+
+
+comando per MAC
+pyinstaller \
+--onedir \
+--windowed \
+--icon=icon.icns \
+--add-binary "ngrok:." \
+--add-data "icon.png:." \
+--add-data "subscriptions.json:." \
+tray.py

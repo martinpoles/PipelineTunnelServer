@@ -1,0 +1,117 @@
+2026-05-11 15:18:55,605 [INFO] Starting application
+2026-05-11 15:18:55,605 [INFO] Starting application
+2026-05-11 15:18:57,606 [INFO] [NGROK] starting...
+2026-05-11 15:18:59,785 [INFO] [NGROK] URL ready:https://deity-freezable-scabbed.ngrok-free.dev
+2026-05-11 15:18:59,786 [INFO] [MAIN] Ngrok ready: https://deity-freezable-scabbed.ngrok-free.dev
+2026-05-11 15:18:59,787 [INFO] 
+================ INIT GRAPH START ================
+
+2026-05-11 15:18:59,787 [INFO] [INIT] cleaning old subscriptions...
+2026-05-11 15:18:59,790 [INFO] [INIT] getting access token...
+2026-05-11 15:19:00,168 [INFO] [INIT] token roles: ['TeamsActivity.Read.All', 'ChannelSettings.Read.All', 'Channel.ReadBasic.All', 'Group.Read.All', 'Directory.Read.All', 'ChannelMember.Read.All', 'Team.ReadBasic.All']
+2026-05-11 15:19:00,169 [INFO] [INIT] token acquired \u2714
+2026-05-11 15:19:00,169 [INFO] [INIT] fetching teams...
+2026-05-11 15:19:00,348 [INFO] [INIT] teams status:200
+2026-05-11 15:19:00,348 [INFO] [INIT] found 8 teams
+2026-05-11 15:19:00,349 [INFO] [INIT] starting bootstrap...
+2026-05-11 15:19:00,349 [INFO] [BOOTSTRAP] subscribing to team: 8f4be367-1d22-4931-a915-d0cb9c9e6d99
+2026-05-11 15:19:00,351 [INFO] Subscription already valid:/teams/8f4be367-1d22-4931-a915-d0cb9c9e6d99/channels
+2026-05-11 15:19:00,352 [INFO] [INIT] bootstrap completed \u2714
+2026-05-11 15:19:02,387 [INFO] 
+====== CANALI ARCHITETTURA ======
+
+2026-05-11 15:19:02,387 [INFO]  -SGN_A_AppViadelPesce
+2026-05-11 15:19:02,387 [INFO]  -CCM_A_ParkSilos
+2026-05-11 15:19:02,388 [INFO]  -Prova Test 1
+2026-05-11 15:19:02,388 [INFO]  -DMC_A_CasViaSalici25
+2026-05-11 15:19:02,389 [INFO]  -BRN_A_AppViaDiaz17
+2026-05-11 15:19:02,389 [INFO]  -MOV_A_GoriziaExCinema
+2026-05-11 15:19:02,390 [INFO]  -SGN_A_AppViaDiaz10
+2026-05-11 15:19:02,390 [INFO]  -VLN_A_ConsulenzaValun
+2026-05-11 15:19:02,390 [INFO]  -00_Base
+2026-05-11 15:19:02,391 [INFO]  -00 Generale
+2026-05-11 15:19:02,391 [INFO]  -GGC_A_AppViaDiaz17
+2026-05-11 15:19:02,392 [INFO] 
+================ INIT GRAPH END ================
+
+2026-05-11 15:19:02,394 [INFO] 
+ Checking subscriptions...
+2026-05-11 15:19:02,395 [INFO] Subscription already valid:/teams/8f4be367-1d22-4931-a915-d0cb9c9e6d99/channels
+2026-05-12 10:46:42,017 [INFO] Starting application
+2026-05-12 10:46:42,018 [INFO] Starting application
+2026-05-12 10:46:44,028 [INFO] [NGROK] starting...
+2026-05-12 10:46:48,981 [INFO] [NGROK] URL ready:https://deity-freezable-scabbed.ngrok-free.dev
+2026-05-12 10:46:48,983 [INFO] [MAIN] Ngrok ready: https://deity-freezable-scabbed.ngrok-free.dev
+2026-05-12 10:46:48,983 [INFO] 
+================ INIT GRAPH START ================
+
+2026-05-12 10:46:48,984 [INFO] [INIT] cleaning old subscriptions...
+2026-05-12 10:46:48,984 [INFO] [GRAPH] Cleanup: removed 1 expired subscriptions
+2026-05-12 10:46:48,984 [INFO] [INIT] getting access token...
+2026-05-12 10:46:49,377 [INFO] [INIT] token roles: ['TeamsActivity.Read.All', 'ChannelSettings.Read.All', 'Channel.ReadBasic.All', 'Group.Read.All', 'Directory.Read.All', 'ChannelMember.Read.All', 'Team.ReadBasic.All']
+2026-05-12 10:46:49,379 [INFO] [INIT] token acquired \u2714
+2026-05-12 10:46:49,380 [INFO] [INIT] fetching teams...
+2026-05-12 10:46:49,608 [INFO] [INIT] teams status:200
+2026-05-12 10:46:49,610 [INFO] [INIT] found 7 teams
+2026-05-12 10:46:49,610 [INFO] [INIT] starting bootstrap...
+2026-05-12 10:46:49,611 [INFO] [BOOTSTRAP] subscribing to team: 8f4be367-1d22-4931-a915-d0cb9c9e6d99
+2026-05-12 10:46:49,613 [INFO] Creating subscription:/teams/8f4be367-1d22-4931-a915-d0cb9c9e6d99/channels
+2026-05-12 10:46:57,637 [INFO] SUB:201, {"@odata.context":"https://graph.microsoft.com/v1.0/$metadata#subscriptions/$entity","id":"07f0c1cb-d42c-4f12-b899-95996d733ae3","resource":"/teams/8f4be367-1d22-4931-a915-d0cb9c9e6d99/channels","applicationId":"82cdc3ed-2078-4eb1-888c-92c948609197","changeType":"created","clientState":"supersecret","notificationUrl":"https://deity-freezable-scabbed.ngrok-free.dev/webhook","notificationQueryOptions":null,"lifecycleNotificationUrl":null,"expirationDateTime":"2026-05-12T09:36:49.611596Z","creatorId":"b1f8c5d8-4d46-4cb6-9b87-ea8402739e1e","includeResourceData":null,"latestSupportedTlsVersion":"v1_2","encryptionCertificate":null,"encryptionCertificateId":null,"notificationUrlAppId":null}
+2026-05-12 10:46:57,641 [INFO] [INIT] bootstrap completed \u2714
+2026-05-12 10:46:59,857 [INFO] 
+====== CANALI ARCHITETTURA ======
+
+2026-05-12 10:46:59,858 [INFO]  -SGN_A_AppViadelPesce
+2026-05-12 10:46:59,858 [INFO]  -CCM_A_ParkSilos
+2026-05-12 10:46:59,858 [INFO]  -Prova Test 1
+2026-05-12 10:46:59,858 [INFO]  -DMC_A_CasViaSalici25
+2026-05-12 10:46:59,859 [INFO]  -BRN_A_AppViaDiaz17
+2026-05-12 10:46:59,859 [INFO]  -MOV_A_GoriziaExCinema
+2026-05-12 10:46:59,859 [INFO]  -SGN_A_AppViaDiaz10
+2026-05-12 10:46:59,859 [INFO]  -VLN_A_ConsulenzaValun
+2026-05-12 10:46:59,859 [INFO]  -00_Base
+2026-05-12 10:46:59,860 [INFO]  -00 Generale
+2026-05-12 10:46:59,860 [INFO]  -GGC_A_AppViaDiaz17
+2026-05-12 10:46:59,861 [INFO] 
+================ INIT GRAPH END ================
+
+2026-05-12 10:46:59,863 [INFO] 
+ Checking subscriptions...
+2026-05-12 10:46:59,878 [INFO] Subscription already valid:/teams/8f4be367-1d22-4931-a915-d0cb9c9e6d99/channels
+2026-05-12 11:20:06,020 [INFO] Starting application
+2026-05-12 11:20:06,020 [INFO] Starting application
+2026-05-12 11:20:13,267 [INFO] [MAIN] Ngrok ready: https://deity-freezable-scabbed.ngrok-free.dev
+2026-05-12 11:20:13,269 [INFO] 
+================ INIT GRAPH START ================
+
+2026-05-12 11:20:13,269 [INFO] [INIT] cleaning old subscriptions...
+2026-05-12 11:20:13,270 [INFO] [INIT] getting access token...
+2026-05-12 11:20:13,647 [INFO] [INIT] token roles: ['TeamsActivity.Read.All', 'ChannelSettings.Read.All', 'Channel.ReadBasic.All', 'Group.Read.All', 'Directory.Read.All', 'ChannelMember.Read.All', 'Team.ReadBasic.All']
+2026-05-12 11:20:13,648 [INFO] [INIT] token acquired \u2714
+2026-05-12 11:20:13,648 [INFO] [INIT] fetching teams...
+2026-05-12 11:20:13,808 [INFO] [INIT] teams status:200
+2026-05-12 11:20:13,809 [INFO] [INIT] found 7 teams
+2026-05-12 11:20:13,810 [INFO] [INIT] starting bootstrap...
+2026-05-12 11:20:13,810 [INFO] [BOOTSTRAP] subscribing to team: 8f4be367-1d22-4931-a915-d0cb9c9e6d99
+2026-05-12 11:20:13,814 [INFO] Subscription already valid:/teams/8f4be367-1d22-4931-a915-d0cb9c9e6d99/channels
+2026-05-12 11:20:13,814 [INFO] [INIT] bootstrap completed \u2714
+2026-05-12 11:20:15,567 [INFO] 
+====== CANALI ARCHITETTURA ======
+
+2026-05-12 11:20:15,568 [INFO]  -SGN_A_AppViadelPesce
+2026-05-12 11:20:15,568 [INFO]  -CCM_A_ParkSilos
+2026-05-12 11:20:15,568 [INFO]  -Prova Test 1
+2026-05-12 11:20:15,568 [INFO]  -DMC_A_CasViaSalici25
+2026-05-12 11:20:15,568 [INFO]  -BRN_A_AppViaDiaz17
+2026-05-12 11:20:15,569 [INFO]  -MOV_A_GoriziaExCinema
+2026-05-12 11:20:15,569 [INFO]  -SGN_A_AppViaDiaz10
+2026-05-12 11:20:15,569 [INFO]  -VLN_A_ConsulenzaValun
+2026-05-12 11:20:15,569 [INFO]  -00_Base
+2026-05-12 11:20:15,570 [INFO]  -00 Generale
+2026-05-12 11:20:15,570 [INFO]  -GGC_A_AppViaDiaz17
+2026-05-12 11:20:15,572 [INFO] 
+================ INIT GRAPH END ================
+
+2026-05-12 11:20:15,572 [INFO] 
+ Checking subscriptions...
+2026-05-12 11:20:15,574 [INFO] Subscription already valid:/teams/8f4be367-1d22-4931-a915-d0cb9c9e6d99/channels
