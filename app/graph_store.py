@@ -1,7 +1,7 @@
 import json
 import os
 import sys
-from logger import logger
+from app.logger import logger
 
 from datetime import datetime, timedelta
 

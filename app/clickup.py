@@ -1,6 +1,6 @@
 import requests
-from config import CLICKUP_API_KEY, CLICKUP_FOLDER_ID, CLICKUP_TEMPLATE_ID
-from logger import logger
+from app.config import CLICKUP_API_KEY, CLICKUP_FOLDER_ID, CLICKUP_TEMPLATE_ID
+from app.logger import logger
 
 
 BASE_URL = "https://api.clickup.com/api/v2"
@@ -26,9 +26,10 @@ def create_list_from_template(list_name, template_id, options=None):
 
 
 
-    r = requests.post(url, json=payload, headers=HEADERS)
+    r = requests.post(url, json=payload, headers=HEADERS, timeout=15)
 
     if r.status_code != 200:
+        logger.exception(f"ClickUp error: {r.text}")
         raise Exception(f"ClickUp error: {r.text}")
 
     data = r.json()

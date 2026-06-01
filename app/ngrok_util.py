@@ -1,8 +1,9 @@
 import subprocess
 import time
 import requests
-from config import NGROK_PATH, PORT
+from app.config import NGROK_PATH, PORT
 import os 
+from app.logger import logger
 
 NGROK_PROCESS = None
 
@@ -34,6 +35,7 @@ def start_ngrok():
     except Exception as e:
 
         print(f"[NGROK][FATAL] subprocess failed: {e}")
+        logger.exception(f"[NGROK][FATAL] subprocess failed: {e}")
         raise
 
 
@@ -55,6 +57,7 @@ def start_ngrok():
 
         except Exception as e:
             print(f"[NGROK] cannot read pipes: {e}")
+            logger.exception(f"[NGROK] cannot read pipes: {e}")
 
         raise Exception("ngrok crashed immediately")
 
@@ -78,6 +81,7 @@ def start_ngrok():
 
             except Exception as e:
                 print(f"[NGROK] cannot read pipes: {e}")
+                logger.exception(f"[NGROK] cannot read pipes: {e}")
 
             raise Exception("ngrok terminated")
 
@@ -119,11 +123,11 @@ def start_ngrok():
                         break
 
                 except Exception as e:
-
+                    logger.exception(f"[NGROK] public test failed: {e}")
                     print(f"[NGROK] public test failed: {e}")
 
         except Exception as e:
-
+            logger.exception(f"[NGROK] localhost polling failed: {e}")
             print(f"[NGROK] localhost polling failed: {e}")
 
         time.sleep(1)
@@ -146,7 +150,7 @@ def start_ngrok():
                 print(f"[NGROK][FINAL STDERR]\n{err}")
 
         except Exception as e:
-
+            logger.exception(f"[NGROK] final debug failed: {e}")
             print(f"[NGROK] final debug failed: {e}")
 
         raise Exception("[NGROK] tunnel non stabile")

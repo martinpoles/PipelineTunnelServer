@@ -1,8 +1,8 @@
 import os
 import time
 import shutil
-from config import NAS_STORAGE, TEMPLATE_PATH
-from logger import logger
+from app.config import NAS_STORAGE, TEMPLATE_PATH
+from app.logger import logger
 
 def create_project_folder(project_id):
     """
@@ -36,13 +36,13 @@ def check_nas(retries=3, delay=1):
             # test reale di accesso
             os.listdir(NAS_STORAGE)
 
-            print("[NAS] OK - NAS disponibile ✔\n")
-            logger.info("[NAS] OK - NAS disponibile ✔\n")
+            print("[NAS] OK - NAS disponibile\n")
+            logger.info("[NAS] OK - NAS disponibile\n")
             return True
 
         except Exception as e:
             print(f"[NAS][WARN] Tentativo {attempt}/{retries} fallito: {e}")
-            logger.info(f"[NAS][WARN] Tentativo {attempt}/{retries} fallito: {e}")
+            logger.exception(f"[NAS][WARN] Tentativo {attempt}/{retries} fallito: {e}")
             time.sleep(delay)
 
     print(f"[NAS][ERROR] NAS non raggiungibile: {NAS_STORAGE}\n")

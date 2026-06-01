@@ -2,9 +2,9 @@ import jwt
 import msal
 import requests
 from datetime import datetime, timedelta
-from logger import logger
-from config import CLIENT_ID, CLIENT_SECRET, TENANT_ID, CLIENT_STATE, TARGET_TEAM_ID
-from graph_store import upsert_subscription, get_valid_subscription, cleanup_expired
+from app.logger import logger
+from app.config import CLIENT_ID, CLIENT_SECRET, TENANT_ID, CLIENT_STATE, TARGET_TEAM_ID
+from app.graph_store import upsert_subscription, get_valid_subscription, cleanup_expired
 
 AUTHORITY = f"https://login.microsoftonline.com/{TENANT_ID}"
 SCOPE = ["https://graph.microsoft.com/.default"]
@@ -43,7 +43,8 @@ def create_graph_subscription(payload):
     response = requests.post(
         url,
         headers=headers,
-        json=payload
+        json=payload,
+        timeout=15
     )
 
     print("SUB:", response.status_code, response.text)
@@ -73,7 +74,8 @@ def get_channel_name(team_id, channel_id, headers):
 
     response = requests.get(
         url,
-        headers=headers
+        headers=headers,
+        timeout=15
     )
 
     if response.status_code != 200:
@@ -92,7 +94,8 @@ def fetch_teams(headers):
 
     response = requests.get(
         url,
-        headers=headers
+        headers=headers,
+        timeout=15
     )
 
     print("[INIT] teams status:", response.status_code)
@@ -160,7 +163,8 @@ def print_architettura_channels(headers):
 
     response = requests.get(
         url,
-        headers=headers
+        headers=headers,
+        timeout=15
     )
 
     print("\n====== CANALI ARCHITETTURA ======\n")
@@ -200,13 +204,13 @@ def init_graph(ngrok_url):
 
         print("[INIT] token roles:", decoded.get("roles", []))
         logger.info(f"[INIT] token roles: {decoded.get('roles', [])}")
-        print("[INIT] token acquired ✔")
-        logger.info("[INIT] token acquired ✔")
+        print("[INIT] token acquired")
+        logger.info("[INIT] token acquired")
 
     except Exception as e:
 
         print("[INIT][ERROR] token failed:", e)
-        logger.info(f"[INIT][ERROR] token failed:{e}")
+        logger.exception(f"[INIT][ERROR] token failed:{e}")
 
         return
 
@@ -232,13 +236,13 @@ def init_graph(ngrok_url):
 
         bootstrap(ngrok_url)
 
-        print("[INIT] bootstrap completed ✔")
-        logger.info("[INIT] bootstrap completed ✔")
+        print("[INIT] bootstrap completed")
+        logger.info("[INIT] bootstrap completed")
 
     except Exception as e:
 
         print("[INIT][ERROR] bootstrap failed:", e)
-        logger.info(f"[INIT][ERROR] bootstrap failed:{e}")
+        logger.exception(f"[INIT][ERROR] bootstrap failed:{e}")
 
     print_architettura_channels(headers)
 

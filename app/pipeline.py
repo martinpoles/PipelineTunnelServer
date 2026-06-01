@@ -1,6 +1,6 @@
-from clickup import create_list_from_template
-from nas import create_project_folder
-from logger import logger
+from app.clickup import create_list_from_template
+from app.nas import create_project_folder
+from app.logger import logger
 
 def run_pipeline(event):
     print(f"\n[PIPELINE] START: Event{event}")

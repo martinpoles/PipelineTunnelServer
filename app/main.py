@@ -6,11 +6,12 @@ import uvicorn
 
 from fastapi import FastAPI, Request
 from fastapi.responses import PlainTextResponse
-from config import TARGET_TEAM_ID
-from graph import get_token, get_channel_name, create_channels_subscription, init_graph
-from pipeline import run_pipeline
-from ngrok_util import start_ngrok
-from logger import logger
+from app.config import TARGET_TEAM_ID, CLIENT_STATE
+from app.graph import get_token, get_channel_name, create_channels_subscription, init_graph
+from app.pipeline import run_pipeline
+from app.ngrok_util import start_ngrok
+from app.logger import logger
+from app.utils import sanitize_filename
 
 app = FastAPI()
 
@@ -61,11 +62,13 @@ def handle_channel_created(event):
         print("\n🚀 RUN PIPELINE")
         logger.info("\n RUN PIPELINE")
 
-        run_pipeline(channel_name)
+        safe_channel_name = sanitize_filename(channel_name)
+
+        run_pipeline(safe_channel_name)
 
     except Exception as e:
         print("❌ CHANNEL HANDLER ERROR:", e)
-        logger.info(f"CHANNEL HANDLER ERROR:{e}", )
+        logger.exception(f"CHANNEL HANDLER ERROR:{e}", )
 
 @app.post("/webhook")
 async def webhook(request: Request):
@@ -108,33 +111,46 @@ async def webhook(request: Request):
         if "value" not in data:
             return PlainTextResponse("ok", status_code=200)
 
-        event = data["value"][0]
+        events = data.get("value", [])
 
-        print("\n📩 RAW EVENT")
-        logger.info("\n RAW EVENT")
-        print(event)
-        logger.info(event)
+        for event in events:
 
-        event_type = route_event(event)
+            if event.get("clientState") != CLIENT_STATE:
+                logger.warning("Invalid clientState")
+                return PlainTextResponse("invalid", status_code=403)
 
-        if event_type == "channel_created":
+            print("\n📩 RAW EVENT")
+            logger.info("\n RAW EVENT")
+            print(event)
+            logger.info(event)
 
-            threading.Thread(
-                target=handle_channel_created,
-                args=(event,)
-            ).start()
+            event_type = route_event(event)
 
-        else:
-            print("⚠️ Unknown event type")
-            logger.info("Unknown event type")
+            if event_type == "channel_created":
 
-        return PlainTextResponse("ok", status_code=200)
+                threading.Thread(
+                    target=handle_channel_created,
+                    args=(event,)
+                ).start()
+
+            else:
+                print("⚠️ Unknown event type")
+                logger.info("Unknown event type")
+
+            return PlainTextResponse("ok", status_code=200)
 
     except Exception as e:
         print("❌ WEBHOOK ERROR:", e)
-        logger.info(f"WEBHOOK ERROR:{e}")
+        logger.exception(f"WEBHOOK ERROR:{e}")
 
         return PlainTextResponse("ok", status_code=200)
+
+@app.get("/health")
+async def health():
+    return {
+        "status": "ok"
+    }
+
 
 def subscription_renewer(ngrok_url):
 
@@ -151,7 +167,7 @@ def subscription_renewer(ngrok_url):
 
         except Exception as e:
             print("❌ Renew error:", e)
-            logger.info(f"Renew error:{e}")
+            logger.exception(f"Renew error:{e}")
 
         time.sleep(60 * 20)
 
