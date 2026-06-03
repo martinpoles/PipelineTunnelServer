@@ -10,7 +10,7 @@ if getattr(sys, 'frozen', False):
 else:
     BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
-FILE = os.path.join(BASE_DIR, "subscriptions.json")
+FILE = "/app/data/subscriptions.json"
 
 
 def load_subscriptions():

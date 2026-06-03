@@ -9,7 +9,7 @@ from fastapi.responses import PlainTextResponse
 from app.config import TARGET_TEAM_ID, CLIENT_STATE
 from app.graph import get_token, get_channel_name, create_channels_subscription, init_graph
 from app.pipeline import run_pipeline
-from app.ngrok_util import start_ngrok
+from app.ngrok_util import start_ngrok, get_ngrok_url
 from app.logger import logger
 from app.utils import sanitize_filename
 
@@ -197,7 +197,7 @@ def main():
     time.sleep(2)
 
     # 3. NGROK
-    ngrok_url = start_ngrok()
+    ngrok_url = get_ngrok_url()
 
     logger.info(f"[MAIN] Ngrok ready: {ngrok_url}")
 

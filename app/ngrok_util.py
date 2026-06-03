@@ -159,3 +159,16 @@ def stop_ngrok():
 
     if NGROK_PROCESS:
         NGROK_PROCESS.terminate()
+
+
+def get_ngrok_url():
+    import requests
+
+    res = requests.get(
+        "http://localhost:4040/api/tunnels",
+        timeout=5
+    )
+
+    tunnels = res.json()["tunnels"]
+
+    return tunnels[0]["public_url"]
