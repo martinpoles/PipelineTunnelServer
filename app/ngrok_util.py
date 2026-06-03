@@ -21,14 +21,7 @@ def start_ngrok():
     try:
 
         print("[NGROK] launching subprocess...")
-
-        NGROK_PROCESS = subprocess.Popen(
-            [NGROK_PATH, "http", str(PORT)],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            stdin=subprocess.DEVNULL,
-            text=True
-        )
+    
 
         print(f"[NGROK] pid: {NGROK_PROCESS.pid}")
 

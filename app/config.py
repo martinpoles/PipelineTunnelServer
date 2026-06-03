@@ -55,4 +55,4 @@ TARGET_TEAM_ID = os.getenv("TARGET_TEAM_ID")
 ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 
-NGROK_PATH = os.getenv("NGROK_PATH")
+NGROK_PATH = "/usr/local/bin/ngrok"
